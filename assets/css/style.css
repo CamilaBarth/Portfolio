@@ -22,11 +22,12 @@ html {
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  padding-top: 3rem;
 }
 
 header {
   background-color: #fff;
-  color: #333;
+  color: rgba(0, 0, 0, 0.9);
   text-align: center;
   padding: 1rem;
 }
@@ -43,7 +44,7 @@ nav li {
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: rgba(0, 0, 0, 0.9);
   font-weight: bold;
 }
 
@@ -51,12 +52,11 @@ section {
   height: 35rem;
   padding-top: 3rem;
   padding-bottom: 2rem;
-  border-radius: 10px;
 }
 
 .bd-grid {
-  margin-left: 10rem;
-  margin-right: 10rem;
+  padding-right: 15rem;
+  padding-left: 15rem;
 }
 
 .section-title {
@@ -67,6 +67,9 @@ section {
 }
 
 .header {
+  top: 0;
+  height: 3rem;
+  z-index: 100;
   width: 100%;
   position: fixed;
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
@@ -74,6 +77,7 @@ section {
 
 /* ----------- NAVBAR ------------ */
 .navbar {
+  top: 0;
   display: flex;
   justify-content: space-between;
   height: 3rem;
@@ -98,12 +102,32 @@ section {
   color: rgba(148, 0, 211);
 }
 
+.nav-toggle {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.active {
+  color: rgba(148, 0, 211);
+}
+
+/* ------------------ Show menu ----------------- */
+.show {
+  right: 0;
+}
+
 /* ----------- HOME ------------- */
 
+.home-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .home-info {
-  align-self: center;
+  justify-content: space-between;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  height: 15rem;
 }
 
 .home-title {
@@ -113,17 +137,22 @@ section {
 }
 
 .home-subtitle {
-  font-family: "'Poppins', sans-serif";
   font-size: 2rem;
   font-weight: 500;
 }
 
+.home-sub {
+  font-family: "'Poppins', sans-serif";
+}
+
 .home-social {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
 }
 
 .home-social-icon {
-  color: black;
+  width: max-content;
+  color: rgba(0, 0, 0, 0.9);
   font-size: 2rem;
   margin-left: 1rem;
 }
@@ -132,10 +161,20 @@ section {
   color: rgba(148, 0, 211);
 }
 
+.home-logo {
+  position: absolute;
+  right: 10rem;
+}
+
+.home-img {
+  width: 500px;
+  height: auto;
+}
+
 /* -----------ABOUT SECTION ------------- */
 
 .about {
-  background-color: rgba(148, 0, 211, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   color: #fff;
   padding: 2rem;
 }
@@ -150,14 +189,14 @@ section {
 }
 
 .about-img {
-  width: 40%;
+  width: 35%;
 }
 
 .about-image {
-  max-width: 100%;
+  width: 350px;
   height: auto;
   display: block;
-  border-radius: 10px;
+  border-radius: 300px;
 }
 
 .about-description {
@@ -166,9 +205,11 @@ section {
 }
 
 /* ---------------- SKILLS SECTION ------------- */
+.skills-section {
+  position: relative;
+}
+
 .skills-container {
-  display: flex;
-  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: row;
@@ -179,12 +220,13 @@ section {
 }
 
 .skill-img {
-  box-shadow: 0px 6px 25px rgba(14, 36, 49, 0.4);
+  box-shadow: 0px 6px 25px rgba(148, 0, 211, 0.4);
   border-radius: 10px;
   display: inline-block;
   width: 12rem;
   height: 12rem;
   margin: 1rem;
+  transition: 0.3s;
 }
 
 .skill-img:hover {
@@ -194,8 +236,8 @@ section {
 
 /* --------------- PROJECTS SECTION --------------- */
 .projects-section {
-  background-color: rgba(148, 0, 211, 0.8);
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255);
   padding: 2rem;
 }
 
@@ -208,22 +250,24 @@ section {
 
 .project-card {
   display: inline-block;
+  color: rgba(0, 0, 0);
   width: 18rem;
   height: 25rem;
-  background-color: rgba(148, 0, 211, 0.5);
+  background-color: rgba(255, 255, 255);
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 5px;
   box-shadow: 0px 6px 25px rgba(14, 36, 49, 0.15);
+  transition: 0.3s;
 }
 
 .project-card:hover {
-  background-color: rgba(148, 0, 211, 0.1);
-  box-shadow: 0px 6px 25px rgba(230, 230, 250, 0.4);
+  box-shadow: 0px 6px 25px rgba(148, 0, 211);
 }
 
 .project-img {
   align-self: center;
+  border-radius: 10px;
   width: 100%;
   height: auto;
   margin-bottom: 0.5rem;
@@ -246,15 +290,18 @@ section {
   cursor: pointer;
   margin: auto;
   color: white;
-  transition: 0.3s;
-  background-color: rgba(148, 0, 211, 0.8);
+  background-color: rgba(148, 0, 211);
   border: 1.5px solid rgba(148, 0, 211);
   font-weight: 600;
   align-self: baseline;
+  transition: 0.3s;
 }
 
 .repository-button:hover {
-  border: 1.5px solid rgba(75, 0, 130);
+  background-color: rgba(148, 0, 211, 0.8);
+  color: white;
+  border: 1.5px solid rgba(148, 0, 211);
+  font-weight: 600;
 }
 
 /* ---------- CONTACT ------------ */
@@ -271,6 +318,9 @@ section {
 }
 
 .contact-input {
+  font-family: "'Poppins', sans-serif";
+  border: none;
+  outline: none;
   width: 20rem;
   height: 1.5rem;
   font-size: 1rem;
@@ -281,10 +331,16 @@ section {
   margin-bottom: 2rem;
 }
 
-.contact-text {
-  padding-left: 4.1rem;
+.text-button {
   text-align: center;
-  width: 40rem;
+}
+
+.contact-text {
+  font-family: "'Poppins', sans-serif";
+  padding: 0.7rem;
+  border: none;
+  outline: none;
+  width: 43rem;
   height: 8rem;
   font-size: 1rem;
   font-weight: 400;
@@ -319,7 +375,7 @@ footer {
   width: 100%;
   text-align: center;
   padding: 1rem 0;
-  background-color: rgba(148, 0, 211);
+  background-color: rgba(0, 0, 0, 0.9);
   color: #fff;
 }
 
@@ -331,10 +387,496 @@ footer {
   font-size: 2rem;
   color: #fff;
   margin: 0 1rem;
+  transition: 0.3s;
 }
 
 .footer-icon:hover {
-  color: black;
+  color: rgba(148, 0, 211);
 }
 
-/* ------------- MEDIA QUUERIES ---------------- */
+/* ------------- MEDIA QUERIES ---------------- */
+
+@media screen and (max-width: 482px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  section {
+    height: auto;
+  }
+  .bd-grid {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* NAVBAR */
+  .navbar {
+    height: 2rem;
+  }
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+  .navbar-link {
+    display: none;
+  }
+  .nav-toggle {
+    padding-top: 2rem;
+  }
+
+  /* HOME */
+  .home-info {
+    margin: auto;
+  }
+  .home-title {
+    font-size: 3rem;
+  }
+  .home-subtitle {
+    font-size: 1.5rem;
+  }
+  .home-social-icon {
+    font-size: 1.5rem;
+  }
+  .home-img {
+    display: none;
+  }
+
+  /* ABOUT */
+  .about-image {
+    display: none;
+  }
+  .about-description {
+    flex-basis: 95%;
+  }
+  .about-container {
+    padding-top: 0.5rem;
+  }
+
+  /* SKILLS */
+  .skill-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .skills-info {
+    display: table-column-group;
+  }
+  .skill-img {
+    height: 8rem;
+    width: 8rem;
+  }
+
+  /* PROJECTS */
+  .projects-container {
+    justify-content: center;
+  }
+  .project-card {
+    height: auto;
+    width: auto;
+  }
+
+  /* CONTACT */
+  .input.form {
+    display: flex;
+  }
+  .contact-form {
+    justify-content: center;
+    margin: 1rem;
+  }
+  .contact-input {
+    width: 70%;
+  }
+  .contact-text {
+    width: 80%;
+    margin: 1rem;
+  }
+
+  /* CONTACT */
+  .contact-input {
+    margin-left: 1.5rem;
+    width: 60%;
+  }
+  .contact-text {
+    width: 70%;
+  }
+
+  /* FOOTER */
+}
+
+@media screen and (min-width: 483px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  section {
+    height: auto;
+  }
+  .bd-grid {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* NAVBAR */
+  .navbar {
+    height: 2rem;
+  }
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+  .navbar-link {
+    display: none;
+  }
+
+  /* HOME */
+  .home-info {
+    margin: auto;
+  }
+  .home-title {
+    font-size: 3rem;
+  }
+  .home-subtitle {
+    font-size: 1.5rem;
+  }
+  .home-social-icon {
+    font-size: 1.5rem;
+  }
+  .home-img {
+    display: none;
+  }
+
+  /* ABOUT */
+  .about-image {
+    display: none;
+  }
+  .about-description {
+    flex-basis: 95%;
+  }
+  .about-container {
+    padding-top: 0.5rem;
+  }
+
+  /* SKILLS */
+  .skill-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .skills-info {
+    display: table-column-group;
+  }
+  .skill-img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  /* PROJECTS */
+  .projects-container {
+    justify-content: center;
+  }
+  .project-card {
+    height: auto;
+    width: auto;
+    margin: 3rem;
+  }
+
+  /* CONTACT */
+  .input.form {
+    display: flex;
+  }
+  .contact-form {
+    justify-content: center;
+    margin: 1rem;
+  }
+  .contact-input {
+    width: 70%;
+  }
+  .contact-text {
+    width: 80%;
+    margin: 1rem;
+  }
+
+  /* CONTACT */
+  .contact-input {
+    margin-left: 1.5rem;
+    width: 61%;
+  }
+  .contact-text {
+    width: 70%;
+  }
+
+  /* FOOTER */
+}
+
+@media screen and (min-width: 587px) {
+  .skill-img {
+    height: 12rem;
+    width: 12rem;
+  }
+  .project-card {
+    margin: 3rem;
+  }
+}
+@media screen and (min-width: 684px) {
+  .skill-img {
+    height: 8rem;
+    width: 8rem;
+  }
+  .projects-container {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+  .project-card {
+    margin: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+  section {
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .bd-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .navbar-link {
+    display: inline-block;
+  }
+  .home-info {
+    justify-content: space-between;
+  }
+  .home-title {
+    font-size: 3rem;
+  }
+  .home-subtitle {
+    font-size: 1.5rem;
+  }
+  .home-social-icon {
+    font-size: 1.5rem;
+  }
+  .about-image {
+    width: 250px;
+  }
+  .skills-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .projects-container {
+    justify-content: center;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  .contact-input {
+    width: 15rem;
+    justify-content: space-between;
+  }
+  .contact-text {
+    width: 35rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar {
+    margin-top: 0.5rem;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .navbar-link {
+    display: inline-block;
+  }
+  .skill-img {
+    width: 11rem;
+    height: 11rem;
+    margin: 1rem;
+  }
+  .projects-container {
+    justify-content: center;
+  }
+  .project-card {
+    width: 12rem;
+    height: 20rem;
+    margin: 1rem;
+  }
+  .home-info {
+    margin: 4rem;
+  }
+  .home-logo {
+    right: 6rem;
+  }
+  .home-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .home-subtitle {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .home-social {
+    display: flex;
+    flex-direction: column;
+  }
+  .home-social-icon {
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
+  .home-logo {
+    position: absolute;
+    right: 10rem;
+  }
+  .home-img {
+    margin-top: 6rem;
+    display: inline-block;
+    width: 400px;
+    height: auto;
+  }
+  .about-img {
+    width: 35%;
+  }
+  .about-image {
+    width: 350px;
+    height: auto;
+    display: block;
+    border-radius: 300px;
+  }
+  .about-description {
+    flex-basis: 55%;
+    text-align: justify;
+  }
+  .projects-section {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+  .project-card {
+    width: 13rem;
+    height: auto;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 1410px) {
+  .home-info {
+    padding: 5rem 5rem;
+    height: 25rem;
+  }
+  .home-img {
+    width: 450px;
+    height: auto;
+  }
+  .about-container {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  .skill-img {
+    width: 15rem;
+    height: 15rem;
+    margin: 2rem;
+  }
+  .project-card {
+    width: 18rem;
+    height: 28rem;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 2150px) {
+  section {
+    height: 60rem;
+  }
+  .section-title {
+    font-size: 4rem;
+    padding-bottom: 3rem;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .bd-grid {
+    padding-right: 20rem;
+    padding-left: 20rem;
+  }
+  .header {
+    height: 6rem;
+  }
+  .navbar {
+    height: 6rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  .navbar-logo {
+    font-size: 4rem;
+  }
+  .navbar-link {
+    font-size: 2rem;
+  }
+  .home-info {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    height: 25rem;
+  }
+  .home-title {
+    font-size: 8rem;
+  }
+  .home-subtitle {
+    font-size: 3rem;
+  }
+  .home-social-icon {
+    font-size: 3rem;
+  }
+  .home-logo {
+    right: 25rem;
+  }
+  .home-img {
+    width: 800px;
+    height: auto;
+  }
+  .about-image {
+    width: 450px;
+  }
+  .about-description {
+    font-size: 2rem;
+  }
+  .skill-img {
+    width: 18rem;
+    height: 18rem;
+    margin: 2rem;
+  }
+  .project-card {
+    width: 32rem;
+    height: 42rem;
+    padding: 1rem;
+  }
+  .project-title {
+    font-size: 2.25rem;
+  }
+  .project-description {
+    font-size: 1.5rem;
+  }
+  .repository-button {
+    padding: 1.5rem 1.25rem;
+    font-size: 1.5rem;
+  }
+  .contact-form {
+    margin-top: 6rem;
+  }
+  .contact-input {
+    width: 25em;
+    height: 3rem;
+    font-size: 2rem;
+  }
+  .contact-text {
+    padding: 1rem;
+    width: 102.5rem;
+    height: 10rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .send-button {
+    padding: 0.75rem 2.5rem;
+    font-size: 2rem;
+  }
+  .footer-icon {
+    font-size: 3rem;
+  }
+}
